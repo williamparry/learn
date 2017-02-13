@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	
+	<!-- 10 points for checking out this web page's source code -->
+
+	<meta charset="UTF-8">
+	<title>William Parry : Learn</title>
+	
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<meta name="description" content="Learn how to build web sites.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.html">Learn Web Development</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+
+				<li @@if(page === "basics") { class="active" }><a href="basics.html">The basics</a></li>
+				<li @@if(page === "style") { class="active" }><a href="style.html">Adding style</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>

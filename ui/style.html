@@ -1,0 +1,291 @@
+@@include('includes/_header.html', {
+	"page": "style"
+})
+
+	<div class="container">
+		
+		<div class="page-header">
+			<h1>Adding style</h1>
+		</div>
+	
+		<p class="alert alert-info" role="alert">
+			<strong>Heads up!</strong> This tutorial assumes you've got a good grasp of the <a href="basics.html">basics</a>.
+		</p>
+		
+		<p>We're going to learn how to make our web pages pretty using <strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets. It's very different to HTML, and is both very intuitive and very unintuitive.</p> 
+	
+		<p>The good news is that nowadays things are a lot better than they were in terms of doing simple things such as rounded corners and drop shadows. The bad news is that laying things out is &ndash; for the most part &ndash; still a bit tricky.</p>
+
+		<p>First of all, let's make a new folder called "homepage" and open it up in Adobe Brackets. If you're not sure how to do this or even what Adobe Brackets is you'd do well to head back to the <a href="basics.html">basics</a>.</p>
+
+		<p>Now that we've got a folder open we're now ready to make a page to explore styling. Make a new file called "index.html" and put this code in:</p>
+
+		<pre><code class="html">@@include(htmlEncode('examples/basics/boilerplate.html'))</code></pre>
+		
+		<p>You'll remember that this is the same code we used in the basics section; it's common practice to copy code around the place.</p>
+		
+		<p>Stuck? <a data-toggle="collapse" href="#boilerplate-help" aria-expanded="false" aria-controls="boilerplate-help">Here's how it should look in your editor</a>:</p>
+
+		<div class="collapse" id="boilerplate-help">
+
+			<div class="img">
+				<img src="img/assets/homepage/boilerplate.png" alt="Brackets open with index.html open and boilerplate code inside" class="img-responsive">
+			</div>
+
+		</div>
+
+		<p>There are many ways to style your HTML, however one common approach that we will do here is to include a link to a file with your CSS definitions. This is called referencing a stylesheet.</p>
+
+		<p>In brackets do the following:</p>
+
+		<ol>
+			<li>Click <span class="code-highlight">File</span> on the top left</li>
+			<li>Click <span class="code-highlight">New</span></li>
+			<li>Save this file as <mark>style.css</mark>
+		</ol>
+
+		<p>Now you should have your new <mark>style.css</mark> open and empty.</p>
+
+		<p>The key thing to remember about CSS is the first "C" which stands for <strong>Cascading</strong>, as in we can override/cascade styles as we go. Let's open up our ugly looking webpage in the browser and I'll explain it further.</p>
+		
+		<div class="browser img">
+			<iframe data-src="examples/basics/boilerplate.html" frameborder="0"></iframe>
+		</div>
+
+		<p>The browser has given us some <a href="http://meiert.com/en/blog/20070922/user-agent-style-sheets/" target="_blank">basic styles <i class="fa fa-external-link"></i></a> for free and in this case we can see that the page has some margin in it (our content is not hard up against the edges) and the font family is Times New Roman.</p>
+
+		<p>Let's add another paragraph to see what else the browser gives us.</p>
+		
+		<pre><code class="html">@@include(htmlEncode('examples/style/paragraph.html'))</code></pre>
+		
+		<p>Refresh your browser and you'll see that your new paragraph style has been spaced for you thanks to the browser's standard stylesheet giving paragraphs a margin.</p>
+		
+		<div class="browser img">
+			<iframe data-src="examples/style/paragraph.html" frameborder="0"></iframe>
+		</div>
+
+		<p>Let's say we want to take manual control of the paragraph spacing, or remove it altogether. We can do that, and that's the very nature of CSS - overriding styles when we want to.</p>
+
+		<p>Before we can do this, we'll need to first link our HTML to our new stylesheet file. Copy in this code and I'll explain what it does:</p>
+		
+		<pre><code class="html">@@include(htmlEncode('examples/style/stylesheet-link.html'))</code></pre>
+
+		<p>What we've done here is create a reference to our stylesheet by using a <span class="code-highlight"><snippet><link></snippet></span> tag in the <span class="code-highlight"><snippet><head></snippet></span> section of our document and setting some attributes on it: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types" target="_blank">rel</a> (relationship) being "stylesheet" and <mark>href</mark> pointing to the <mark>style.css</mark> file that we just made.</p>
+
+		<p>Let's jump into our stylesheet file (<mark>style.css</mark>) and write some CSS.</p>
+		
+		<h2>Writing CSS</h2>
+
+		<p>A CSS file is a compilation of definitions. Think of them as instruction sets of how an HTML element (such as a <span class="code-highlight">p</span>aragraph) should look. Here's an example of one definition that targets the <span class="code-highlight"><snippet><p></snippet></span> tag.</p>
+
+<pre><code class="css">p {
+	color: red;
+}
+</code></pre>
+
+		<p>Looks very different to HTML, doesn't it? This is because they serve two purposes: HTML is there to mark up a semantic document, and CSS is there purely to make the document look more aesthetically pleasing.</p>
+
+		<p>If you put that CSS into your <mark>style.css</mark> file, save it and then refresh the browser you won't believe what it will look like.</p>
+
+		<p><a data-toggle="collapse" href="#paragraph-red" aria-expanded="false" aria-controls="paragraph-red">Want a sneak peek?</a></p>
+
+		<div class="collapse" id="paragraph-red">
+
+			<div class="browser img">
+				<iframe data-src="examples/style/red-paragraph/index.html" frameborder="0"></iframe>
+			</div>
+
+		</div>
+
+		<p>Ok, maybe you guessed that the font would turn red. Is it that easy? In some ways it is that easy. Try changing the font to blue and once you're done playing with colours (oh, and use american style spelling, so "colors") let's go over the structure of a CSS definition.</p>
+		
+		<p>First we have the selector, which is our target for whatever style we want to add. In this case it's a <span class="code-highlight"><snippet><p></snippet></span> tag.</p>
+
+		<pre><code class="css">p</code></pre>
+		
+		<p>Then we follow it with a curly brace, indicating that we're opening up a new definition:</p>
+
+		<pre><code class="css">p {</code></pre>
+
+		<p>To close the definition we add a closing curly brace. It's best to close the definition now and fill it in afterwards do it now because we might forget later; CSS is similar to HTML in the way that it will quietly mess up the page without telling you.</p>
+
+<pre><code class="css">p {
+
+}
+</code></pre>
+
+		<p>We now have an empty CSS definition that's targeting all <span class="code-highlight"><snippet><p></snippet></span> tags in our document. Let's override the standard font size the browser gave us (16px) to make it huge (just because we can).</p>
+
+<pre><code class="css">p {
+	font-size: 48px;
+}
+</code></pre>
+
+		<p>When you refresh your browser you're going to see huge paragraph text:</p>
+
+		<div class="browser"><span></span>
+			<iframe data-src="examples/style/huge-paragraph/index.html" frameborder="0"></iframe>
+		</div>
+		<p>
+			<small>For the purposes of this course we'll be using the <mark>px</mark> (pixel) measurement for fonts (<a href="http://www.w3schools.com/css/css_font.asp">see more on this <i class="fa fa-external-link"></i>)</a>.</small>
+		</p>
+
+		<p>You'll notice a similar structure between making the color red and the font size large. Once we're inside the curly braces we can start loading up the selector (in this case the <mark>p</mark>) with as many styles as we need.</p>
+
+		<p>First we define the property we want to add:
+
+<pre><code class="css">p {
+	font-size
+}
+</code></pre>
+
+		<p>Add a colon, so that it can distinguish between the property and value:</p>
+
+<pre><code class="css">p {
+	font-size:
+}
+</code></pre>
+
+		<p>Now we can give it a value:</p>
+
+<pre><code class="css">p {
+	font-size: 48px
+}
+</code></pre>
+
+		<p>And close it off with a semi-colon so that it knows we've finished with that property:</p>
+
+<pre><code class="css">p {
+	font-size: 48px;
+}
+</code></pre>
+
+	
+		<p>That is a fully formed CSS definition. But what if we want to make the font huge <em>and</em> red? Have a go!</p>
+
+<p>Stuck? <a data-toggle="collapse" href="#multiple-properties-help" aria-expanded="false" aria-controls="multiple-properties-help">Here's what your CSS definition should look like</a>:</p>
+
+		<div class="collapse" id="multiple-properties-help">
+
+<pre><code class="css">p {
+	font-size: 48px;
+	color: red;
+}
+</code></pre>
+
+		</div>
+
+		<p>You can imagine what that's going to look like in your browser.</p>
+
+		<p>Practice time!</p>
+
+		<ul>
+			<li>Make the font italics</li>
+			<li>Make the text underlined</li>
+			<li>Give the text an indent</li>
+		</ul>
+
+		<p>It should look like this:</p>
+
+		<div class="browser"><span></span>
+			<iframe data-src="examples/style/huge-paragraph-red/index.html" frameborder="0"></iframe>
+		</div>
+		<p>
+		<small>Tip: try using Google to find out how to do this.</small>
+		</p>
+
+<p>Stuck? <a data-toggle="collapse" href="#paragraph-style-practice-help" aria-expanded="false" aria-controls="paragraph-style-practice-help">Here's what your CSS definition should look like</a>:</p>
+
+		<div class="collapse" id="paragraph-style-practice-help">
+
+<pre><code class="css">p {
+	font-size: 48px;
+	color: red;
+	font-style: italic;
+	text-indent: 36px;
+	text-decoration: underline;
+}
+</code></pre>
+		</div>
+
+		<p>Now we know how to form a basic CSS definition that targets all <span class="code-highlight"><snippet><p></snippet></span> tags on a web page.</p>
+
+
+<div class="alert alert-success" role="alert">
+	<strong>Milestone reached!</strong>
+	We can now make our web pages pretty
+</div>
+
+<p>We have covered:</p>
+
+<ul>
+	<li>Linking to a stylesheet</li>
+	<li>What CSS is</li>
+	<li>How to make a CSS definition</li>
+</ul>
+
+<h2>Practice exercises</h2>
+
+<p>Make a page with the following HTML:</p>
+
+<pre><code class="html">@@include(htmlEncode('examples/style/practice.html'))</code></pre>
+
+<ul>
+
+	<li>Style the headings
+		<ul>
+			<li>Make <span class="code-highlight"><snippet><h2></snippet></span> font size larger than an <span class="code-highlight"><snippet><h1></snippet></span></li>
+		</ul>
+	</li>
+
+	<li>Style the table
+		<ul>
+			<li>Give the header cells a background and different font colour</li>
+		</ul>
+	</li>
+	<li>Style the list
+		<ul>
+			<li>Change an unordered list to have squares instead of circles</li>
+			<li>Change an ordered list to use roman numerals</li>
+		</ul>
+	</li>
+	
+</ul>
+
+<p>Stuck? <a data-toggle="collapse" href="#practice-exercises-help" aria-expanded="false" aria-controls="practice-exercises-help">Here's what your CSS definition could look like</a>:</p>
+
+		<div class="collapse" id="practice-exercises-help">
+
+<pre><code class="css">h2 {
+	font-size: 36px;
+}
+
+th {
+	background: black;
+	color: white;
+}
+
+ul {
+	list-style-type: square;
+}
+
+ol {
+	list-style-type: upper-roman;
+}
+</code></pre>
+		</div>
+
+	<h2>Using the same stylesheet file on multiple pages</h2>
+
+	<p>If you have a second page (such as the contact page from "The basics") then open that up and put the same reference in there:</p>
+
+	<p><span class="code-highlight"><snippet><link rel="stylesheet" href="style.css"></snippet></span></p>
+
+	<p>Now that page looks pretty, too. And, if you decide to make any changes to the stylesheet file it will update the styles in both places automatically (because it is referenced). Cool, hey, you can learn more about CSS in the next section:</p>
+	
+	
+<p class="alert alert-info" role="alert"><strong>NOTE:</strong> I have removed the "Make a Homepage" section, but if you'd like it email me.</p>
+
+<p>You should now feel equipped to go out at try other tutorials and building your own web pages. Good luck!</p>
+
+@@include('includes/_footer.html')

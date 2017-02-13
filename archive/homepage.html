@@ -1,0 +1,668 @@
+@@include('includes/_header.html', {
+	"page": "homepage"
+})
+
+	<div class="container">
+		
+		<div class="page-header">
+			<h1>Make a homepage</h1>
+		</div>
+	
+		<p class="alert alert-info" role="alert">
+			<strong>Heads up!</strong> This tutorial assumes you've got a good grasp of the <a href="basics.html">basics</a> and <a href="style.html">adding style</a>.
+		</p>
+		
+		<p>Let's start this section with a fresh folder containing an <mark>index.html</mark> file that references an empty <mark>style.css</mark> file.</p>
+
+		<p>We want to start our page with a header that says "William's Homepage" (but you can use your name if you like). Go ahead and code it up - it should look like this:</p>
+
+		<div class="browser img">
+			<iframe data-src="examples/homepage/1/index.html" frameborder="0"></iframe>
+		</div>
+
+		<p>Stuck? <a data-toggle="collapse" href="#1-help" aria-expanded="false" aria-controls="1-help">Here's how it should look in your editor</a>:</p>
+
+		<div class="collapse" id="1-help">
+
+			<pre><code class="html">@@include(htmlEncode('examples/homepage/1/index.html'))</code></pre>
+
+		</div>
+
+		<p>Looks ugly, and I know I promised that we'd make pretty things, so let's go ahead and add some style to it. You've already got a stylesheet attached (<mark>style.css</mark>) so let's open that up in the editor.</p>
+
+		<p>Let's give the <kbd>[html]<h1>[/html]</kbd> some style:</p>
+
+		<ul>
+			<li>Make it a bit bigger</li>
+			<li>Put it in the center of the page</li>
+			<li>Change the font family</li>
+		</ul>
+
+		<div class="browser img">
+			<iframe data-src="examples/homepage/2/index.html" frameborder="0"></iframe>
+		</div>
+
+		<p>Stuck? <a data-toggle="collapse" href="#2-help" aria-expanded="false" aria-controls="2-help">Here's how it should look in your editor</a>:</p>
+
+		<div class="collapse" id="2-help">
+
+		<pre><code class="css">@@include(htmlEncode('examples/homepage/2/style.css'))</code></pre>
+
+		</div>
+
+		<p>Looking good, hey? Good stuff.</p>
+
+		<div class="alert alert-info" role="alert">
+			
+			<p>If you're coming from a design background (or you use Microsoft Word) I bet you're wondering what fonts you can use. Web browsers come with a set of standard fonts that work across platforms and they are:</p>
+
+
+		<!-- http://web.mit.edu/jmorzins/www/fonts.html -->
+
+			<ul>
+				<li>arial</li>
+				<li>verdana</li>
+				<li>sans-serif</li>
+				<li>tahoma</li>
+				<li>times</li>
+			</ul>
+		</div>
+
+		<p>Nowadays you can quite easily add your own custom fonts to websites, but it's outside the remit of this course. If you ask me <em>really nicely</em> I might come and show you how to do it but be warned, it's a bit tricky to get your head around.</p>
+
+		<p>Let's add a welcome paragraph underneath:</p>
+
+		<pre><code class="html">@@include(htmlEncode('examples/homepage/3/index.html'))</code></pre>
+
+		<p>Let's go ahead and style it. Do what you want to it - I'll show you what I've done. It looks pretty cool, so feel free to try and replicate it. <br><small>(Remember Google)</small></p>
+
+		<div class="browser img">
+			<iframe data-src="examples/homepage/3/index.html" frameborder="0"></iframe>
+		</div>
+
+		<p>Stuck? <a data-toggle="collapse" href="#3-help" aria-expanded="false" aria-controls="3-help">Here's what my CSS definition looks like</a>:</p>
+
+		<div class="collapse" id="3-help">
+
+			<pre><code class="css">@@include(htmlEncode('examples/homepage/3/style.css'))</code></pre>
+		
+		</div>
+
+		<p>Pretty fancy, and this is just scraping the top of what CSS can do! Let's add some info about us:</p>
+
+		<pre><code class="html">@@include(htmlEncode('examples/homepage/4/index.html'))</code></pre>
+
+		<p>Refresh your browser and check out your new "About" content</p>
+
+		<div class="browser img">
+			<iframe data-src="examples/homepage/4/index.html" frameborder="0"></iframe>
+		</div>
+
+		<p>Wait, what? That looks strange... The <kbd>[html]<h2>[/html]</kbd> looks unstyled and the <kbd>[html]<p>[/html]</kbd> has the introduction paragraph style... We don't want that!</p>
+			
+		<p>Before you throw your hands up in despair, let me tell you tell you a bit more about "selectors" and we'll fix up your styles in no time. First let's go back to the style we added before:</p>
+
+<pre><code class="css">p {
+	/* Your styles */
+}
+</code></pre>
+
+		<p><small>The <kbd>/* */</kbd> means "comment", which is how you can write notes for yourself and fellow developers. You can also wrap code that you don't want to use in comments (rather than deleting it).</small></p>
+
+		<p>What we've done here is write a CSS selector for ALL <kbd>[html]<p>[/html]</kbd> tags. We can make the selector more specific in many ways. One such way is by giving the tag an <mark>id</mark>.</p>
+
+		<pre><code class="html">@@include(htmlEncode('examples/homepage/5/index.html'))</code></pre>
+
+		<div class="alert alert-info" role="alert">An id is a unique attribute; you can't have multiple tags with the same id value.</div>
+
+		<p>To target a tag with an id you use the <mark>#</mark> selector where the following word is the value. Let's try it out by replacing the existing <kbd>p { }</kbd> selector with one that uses an id:</p>
+
+		<pre><code class="css">@@include(htmlEncode('examples/homepage/5/style.css'))</code></pre>
+
+		<p>When you refresh the page you'll now see that your "About" paragraph text is no longer affected by the introduction paragraph's styles.</p>
+
+		<div class="browser img">
+			<iframe data-src="examples/homepage/5/index.html" frameborder="0"></iframe>
+		</div>
+
+		<div class="alert alert-info" role="alert"><strong>Practice:</strong> add your own id's to your page. All HTML elements can have an id (it's one of the <a href="https://developer.mozilla.org/en/docs/Web/HTML/Global_attributes" target="_blank">Global attributes <i class="fa fa-external-link"></i></a>)</div>
+
+
+		<p>All is well... or is it? It looks like now you have some text that's styled and some that isn't and you might want all your text to be the same font.</p>
+
+		<p class="question">What if I want all my content to share the same font?</p>
+
+		<p>You could simply add the <mark>font-family</mark> property to every definition, but really this is where we use the "Cascading" part of CSS. To do this you'll need to find the top-most tag in your document you want the style to apply to. Let's go up the document tree:</p>
+
+<pre>
+html
+  |
+  |
+  + <mark>body</mark>
+     |
+     |
+     + header
+     |   |
+     |   |
+     |   - h1
+     |
+     |
+     - #introduction
+     |
+     |
+     - h2
+     |
+     |
+     - p
+</pre>
+
+	<p>If we target the <kbd>[html]<body>[/html]</kbd> tag the font style will cascade down to the tags underneath it, which sounds like what we need. Let's add a <kbd>body { }</kbd> definition that has our <mark>font-family</mark> in it, and remove it from the <kbd>h1 { }</kbd> and <kbd>p { }</kbd> definitions. Your CSS should now look like this:</p>
+
+	<pre><code class="css">@@include(htmlEncode('examples/homepage/6/style.css'))</code></pre>
+
+	<p>If you refresh the page, you'll see that now the font family applies to all our tags under the <kbd>[html]<body>[/html]</kbd>.</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/6/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>To drive home this home, let's do an exercise:</p>
+
+	<ul>
+		<li>Give the <kbd>[html]<h1>[/html]</kbd> a font family of <mark>verdana</mark></h1>
+		<li>Give the <kbd>[html]<h2>[/html]</kbd> a font family of <mark>tahoma</mark></li>
+	</ul>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/7/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Stuck? <a data-toggle="collapse" href="#7-help" aria-expanded="false" aria-controls="7-help">Here's how it should look in your editor</a>:</p>
+
+	<div class="collapse" id="7-help">
+
+		<pre><code class="css">@@include(htmlEncode('examples/homepage/7/style.css'))</code></pre>
+
+	</div>
+
+	<p>What's happening here is:</p>
+
+	<ul>
+		<li>The browser is applying a <mark>font-family</mark> to the body tag (which cascades down to all the tags undeneath it)</li>
+		<li>Then the <kbd>[html]<h1>[/html]</kbd> and <kbd>[html]<h2>[/html]</kbd> tags are overriding the <mark>font-family</mark> with their own value</li>
+	</ul>
+
+	<p>Practice time!</p>
+
+	<ul>
+		<li>Give all text a colour of <mark>#333333</mark></li>
+		<li>Make the introduction text colour <mark>red</mark></li>
+	</ul>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/8/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Stuck? <a data-toggle="collapse" href="#8-help" aria-expanded="false" aria-controls="8-help">Here's how it should look in your editor</a>:</p>
+
+	<div class="collapse" id="8-help">
+
+		<pre><code class="css">@@include(htmlEncode('examples/homepage/8/style.css'))</code></pre>
+
+	</div>
+
+	<div class="alert alert-info" role="alert">
+		<p>You can find out which properties automatically inherit on <a href="http://www.w3.org/TR/CSS21/propidx.html" target="_blank"> this W3C table <i class="fa fa-external-link"></i></a></p>
+	</div>
+
+	<div class="alert alert-success" role="alert">
+		<strong>Milestone reached!</strong>
+		We can now cascade our styles
+	</div>
+
+	<p>We're looking good! Well, kind of, the red text looks a bit off, but we'll leave that for now. How about we add a background image?</p>
+
+	<ol>
+		<li>Head over to <a href="http://subtlepatterns.com/" target="_blank">subtlepatterns.com <i class="fa fa-external-link"></i></a></li>
+		<li>Choose a background image and download it into your website folder</li>
+		<li>Add it to your <kbd>body { }</kbd> definition</li>
+	</ol>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/9/index.html" frameborder="0"></iframe>
+	</div>
+	
+	<p>Stuck? <a data-toggle="collapse" href="#9-help" aria-expanded="false" aria-controls="9-help">Here's how it should look in your editor</a>:</p>
+
+	<div class="collapse" id="9-help">
+
+		<pre><code class="css">@@include(htmlEncode('examples/homepage/9/style.css'))</code></pre>
+
+	</div>
+
+	<p>Beautiful! You know what, I'm going to get rid of that red text and change the tiles back to the body font, because it looks rubbish. I'm also going to add a translucency to the introduction; I reckon it would look neat.</p>
+
+	<p>Feel free to touch up your homepage before we move on to floats.</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/10/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p><a data-toggle="collapse" href="#10-help" aria-expanded="false" aria-controls="9-help">Here's my css</a>:</p>
+
+	<div class="collapse" id="10-help">
+
+		<pre><code class="css">@@include(htmlEncode('examples/homepage/10/style.css'))</code></pre>
+
+	</div>
+
+	<h2>Floats</h2>
+
+	<div class="alert alert-warning" role="alert">
+		<strong>Warning:</strong>
+		Floats are generally considered hard to get your head around.
+	</div>
+
+	<p>Haven't scared you off? Great! Let's crack on.</p>
+
+	<p>You're going to need a picture of yourself; I've chosen one that was taken of me at work.</p>
+
+	<p>Slot this in at the beginning of your homepage text so that it looks like below:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/11/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>It's a bit big, so I'll just go ahead and give it an explicit width. While I'm at it I'm going to load up some <a href="http://www.cupcakeipsum.com/" target="_blank">filler text <i class="fa fa-external-link"></i></a> and a contact link with my email address.</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/12/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Getting better... But what's up with the text being down the bottom? This is because of the content flow of the page (left to right, top to bottom). To get this image aligned so that our text flows around it we're going to need to float the image to the left.</p>
+
+	<p>Put in this CSS:</p>
+
+	<pre><code class="css">@@include(htmlEncode('examples/homepage/13/style.css'))</code></pre>
+
+	<p>This will mean the image is floated to the left and our text can flow around it like so:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/13/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Looking good. Let's add a "Things I like" section now.</p>
+
+	<p>Add another <kbd>[html]<h2>[/html]</kbd> tag below your "About" content and call it "Things I like"</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/14/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>What's this? We're expecting our new heading to be on the line below the image, not next to the image!</p>
+
+	<p>As far as the browser is concerned, the image that we floated is outside the normal flow of the page (every element after the floated element flows around it - <a href="http://alistapart.com/article/css-floats-101/" target="_blank">more <i class="fa fa-external-link"></i></a> on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" target="_blank">floats <i class="fa fa-external-link"></i></a>). We're going to have to tell the browser that we want to get back onto the normal flow, which means clearing the float.</p>
+
+	<div class="alert alert-info" role="alert">
+		<strong>Note:</strong>
+		There are many ways to clear floats. The example I'm using is just one of them (the simplest).
+	</div>
+
+	<p>Let's amend our CSS so that we clear out of the float:</p>
+
+	<pre><code class="css">@@include(htmlEncode('examples/homepage/15/style.css'))</code></pre>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/15/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Voila! We're now cleared out of the floated element.</p>
+
+	<div class="alert alert-info" role="alert">
+		<strong>Remember: </strong>Always remember to clear your floats
+	</div>
+
+	<div class="alert alert-success" role="alert">
+		<strong>Milestone reached!</strong>
+		We can now float our elements
+	</div>
+
+	<p>Notice how it's all cramped? Let's add a margin to give it some space. Open up your style.css file and scroll to the <kbd>img { }</kbd> definition. Add in a right margin like so:</p>
+
+	<pre><code class="css">@@include(htmlEncode('examples/homepage/16/style.css'))</code></pre>
+
+	<p>This will push the text around it out by 15px</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/16/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>That looks much better. We can also add a margin to the bottom of the image so that the heading below it gets pushed out:</p>
+
+	<pre><code class="css">@@include(htmlEncode('examples/homepage/17/style.css'))</code></pre>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/17/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Let's add some things that we like:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/18/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Whoa, what's going on with those images? I was expecting a vertical list, not some weird timeline. Let's learn how to inspect elements in Chrome to figure out what's going on. <a data-toggle="collapse" href="#chrome-inspector" aria-expanded="false" aria-controls="chrome-inspector">Heres a demo:</a></p>
+
+	<div class="collapse defer-image-collapse" id="chrome-inspector">
+		<div class="img">
+			<img data-src="img/assets/homepage/chrome-inspector.gif">
+		</div>
+	</div>
+	
+	<p class="alert alert-info" role="alert">
+		<strong>Remember!</strong> While you can modify CSS properties and even the page itself, it won't affect the source files; when you refresh you'll get a fresh copy.
+	</p>
+
+	<p>What we can see here is that our <kbd>img {}</kbd> selector is far too broad; it's affecting every <kbd>[html]<img>[/html]</kbd> element.</p>
+
+	<p>Let's fix that up by making some changes. Paste this in and I'll explain:</p>
+
+	<pre><code class="css">@@include(htmlEncode('examples/homepage/19/style.css'))</code></pre>
+
+	<pre><code class="html">@@include(htmlEncode('examples/homepage/19/index.html'))</code></pre>
+
+	<p>
+		We've given the image an id attribute, which means that it now shouldn't contaminate our other image tags. Let's take a look at that:
+	</p>
+
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/19/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Much better! Now that our list is looking like... a list... we can begin styling it.</p>
+
+	<ul>
+		<li>Remove the dots</li>
+		<li>Remove the spacing from the left so the list items hug up against the side of the screen</li>
+	</ul>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/20/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Stuck? <a data-toggle="collapse" href="#pscyh" aria-expanded="false" aria-controls="1-help">Here's how it should look in your editor</a>:</p>
+
+	<div class="collapse" id="pscyh">
+
+		<p class="alert alert-info" role="alert">
+			<strong>Psych!</strong> Now you know about Chrome Developer Tools you're going to have to use that from now on :)
+		</p>
+
+	</div>
+
+	<p>While you're in Chrome Developer tools you can check out a CSS concept called "display". CSS has couple of main types of element <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements" target="_blank">block-level <i class="fa fa-external-link"></i></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elemente" target="_blank">inline <i class="fa fa-external-link"></i></a>.</p>
+	<p><small>tl;dr: if it's block-level the element moves onto its own line and fills the width of the parent element (like an <kbd>[html]<h1>[/html]</kbd> tag) and if it's inline it will fill only its own space (like an <kbd>[html]<a>[/html]</kbd> tag).</small></p>
+
+	<p>You can see block-level elements in practice by inspecting a title (say "About me") and noticing how although the text is only short, the bounding box goes all the way to the end. Similarly, to view an "inline" element you can inspect the contact link and notice how the bounding box is in line with the rest of the text.</p>
+
+	<p>You can override these in CSS &ndash; try giving the link a display of "block" and see how it goes onto another line (extra points if you can do this in developer tools).</p>
+
+	<p>Moving on, and we've got a concern with our images now: what if they don't load (bad connection, typo etc)? We can get provide an <mark>alt</mark> attribute that will show up in its place to describe the image.</p>
+
+	<div class="browser img" >
+		<iframe data-src="examples/homepage/21/index.html" frameborder="0" data-scrollbottom="true"></iframe>
+	</div>
+
+	<p class="alert alert-info" role="alert">
+		It's best practice to provide an alternate text for images that are important for your content. If it's not important the image should be a background or have an empty <mark>alt</mark> attribute.
+	</p>
+
+	<p>Now that we're covered with alternate text let's give each list item a border, a background and some space:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/22/index.html" frameborder="0" data-scrollbottom="true"></iframe>
+	</div>
+
+	<p>How about we give the image its own border, too?</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/23/index.html" frameborder="0" data-scrollbottom="true"></iframe>
+	</div>
+
+	<p>Hmmm, the image is hard up against the list item so that the borders are right next to each other, and that doesn't look so good. What we can do is apply some padding to the list item, which means everything is pushed <em>inwards</em> inside the element. Check it out:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/24/index.html" frameborder="0" data-scrollbottom="true"></iframe>
+	</div>
+
+	<p>
+		Basically, a <mark>margin</mark> pushes elements away from it, <mark>padding</mark> pushes its own content inwards.
+	</p>
+
+	<p>Now that we have a border style for our list images, we may also want to apply that same style to our "About me" image above. There's several ways we could do this (copy the border style, for example), but what if we want one central place to define the border style for certain images? We can do it with a CSS class.</p>
+
+	<p>The syntax for a class &ndash; you'll see from inspecting the page's <mark>style.css</mark> &ndash; is <kbd>.</kbd>, so <kbd>.framed</kbd> (just like how <kbd>#</kbd> is for selecting an <mark>id</mark>)</p>
+
+	<p class="alert alert-info" role="alert">
+		What are valid class and id values? Check out the answer on <a href="http://stackoverflow.com/questions/448981/what-characters-are-valid-in-css-class-names-selectors" target="_blank">stackoverflow.com <i class="fa fa-external-link"></i></a>
+	</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/25/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>Classes are very helpful for reusing styles around your web page. Let's add another list, this time with our favourite foods:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/26/index.html" frameborder="0" data-scrollbottom="true"></iframe>
+	</div>
+
+
+	<p>I want to style this list exactly like the other, since it's conceptually a list of "something I like". We can share the the whole list style (margin, padding etc) by using a class. Let's call the class "likes-list".</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/27/index.html" frameborder="0" data-scrollbottom="true"></iframe>
+	</div>
+
+	<p>Unlike <mark>id</mark>, you can have as many classes as you like, and one element can have many classes. Let's give the food category classes: <kbd>healthy</kbd> and <kbd>unhealthy</kbd></p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/28/index.html" frameborder="0"></iframe>
+	</div>
+
+	<div class="alert alert-success" role="alert">
+		<strong>Milestone reached!</strong>
+	</div>
+
+	<p>We have covered:</strong>
+	<ul>
+		<li>How to use Chrome Developer Tools</li>
+		<li>CSS display</li>
+		<li>Margin and padding</li>
+		<li>Different ways of selecting elements</li>
+	</ul>
+
+	<h3>Practice Exercises</h3>
+
+	<p>Consider the following HTML</p>
+
+	<pre><code class="html">@@include(htmlEncode('examples/homepage/29/index.html'))</code></pre>
+
+	<ul>
+		<li>Style the list of favourite movies using only one <mark>id</mark> and then using child selectors (using a space)
+			<ul>
+				<li>Remove the link's text decoration</li>
+				<li>Give the links a hover state</li>
+			</ul>
+		</li>
+		<li>Style the list of friends
+			<ul>
+				<li>Make a different style for male and female</li>
+				<li>Make a different style for what profession they are</li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/30/index.html" frameborder="0"></iframe>
+	</div>
+
+	<p>
+		Alright, time to wrap this page up and to do this we're going to add a footer to our page where we can put things like a copyright statement or another navigation.
+	</p>
+
+	<p>
+		Can you guess which tag we're going to use for the footer? That's right, a <kbd>[html]<footer>[/html]</kbd> tag. Let's put in a copyright on our page (like the one on the bottom of this page).
+	</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/31/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p>And let's pretty it up:</p>
+
+	<ul>
+		<li>Center align the text</li>
+		<li>Put a border on the top</li>
+		<li>Give it a background</li>
+		<li>Put in some padding so it's spaced inside</li>
+		<li>Put in a top margin so that it's away from the content a bit</li>
+	</ul>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/32/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p>Hmmmm, it looks as though the footer doesn't stretch all the way to both ends of the page. Let's find out why that is.</p> 
+	<ol>
+		<li>Right click on your footer and go "Inspect element"</li>
+		<li>Hover over the footer</li>
+		<li>You'll see an orange shade above it, which is your margin. It doesn't look like there's any on the left and right</li>
+		<li>Move up the elements on your page until you see the culprit element</li>
+		<li>Aha, it's the <kbd>[html]<body>[/html]</kbd> element</li>
+	</ol>
+
+	<p>Let's get rid of that margin:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/33/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p>Whoa, now everything is hard up against the edges, and we don't want that.</p>
+
+	<p>We can fix this in many different ways, one of which is to wrap everything we want to be inset in a container that has a margin. The other way is to do it piece by piece (the header and then each list individually, for example). You may want to do the latter if you'd like some pieces to stretch right to the edges. In this example we'll do the former &ndash; wrap everything in a container.</p>
+
+	<p>Ok, let's make a <kbd>[html]<div>[/html]</kbd>, give it an id of "wrapper" and put everything except the footer inside it.</p>
+
+	<p class="alert alert-info" role="alert">
+		<kbd>[html]<div>[/html]</kbd> just means "division" and it has no semantic value. It is a block-level element.
+	</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/34/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p>Looking good again.</p>
+
+	<p>Let's add one of those handy "back to top" links, so that people don't have to scroll all the way back up, and then I think we're done with this page. I'm going to put mine just above the top right of the footer like a little lip and to do this I'm going to use CSS positioning.</p>
+
+	<p>First let's add the link:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/35/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p class="alert alert-info" role="alert">
+		"#top" is a special fragment that links to the top of the page. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">see the "href" note <i class="fa fa-external-link"></i></a>
+	</p>
+
+	
+
+	<p>To put the link on the right we could use a float, right? <small>(coding puns are the worst)</small>, so feel free to go and try it. You'll notice that it is still inset because of the padding on the <kbd>[html]<footer>[/html]</kbd>. We can break out of this by taking manual control of the link's <mark>position</mark>.</p>
+
+	<p>By default an element is position <mark>static</mark>, as in it's just part of the normal page flow. In this case we're going to want to make it <mark>absolute</mark>, which means we can tell it the <mark>top/bottom</mark> and <mark>left/right</mark> coordinates and it'll go there.</p>
+
+	<p>Let's give it a top of 5px and a right of 5px.</p>
+
+	<pre><code class="html">@@include(htmlEncode('examples/homepage/36/style.css'))</code></pre>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/36/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p>Where did it go?</p>
+
+	<p>Scroll up to the top of the page and you'll see it way up there. Sure its top and right positions are 5px, but the browser has put it relative to the page, not the footer.</p>
+
+	<p>This is because we haven't set the context in which the link is to be absolutely positioned. We can set that context by giving the footer a position of <mark>relative</mark> (rather than its default, <mark>static</mark>)</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/37/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p>Much better!</p>
+
+	<p>I'm going to go ahead and style it up and adjust the position a touch so that it gives me a little lip.</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/38/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p>There are a few kinds of positions that you can give an element: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank"> fixed, relative and absolute <i class="fa fa-external-link"></i></a>. Let's dive a little deeper into relative positioning.</p>
+
+	<p>If we give an element the position of "relative", not only are we contextualising any absolutely positioned elements within, we can also position it too (top/bottom, left/right) from where it stands. I'm going to move the footer to the left 20px now:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/39/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+
+	<p>And just to tease you a little bit before we finish up, hover over my name:</p>
+
+	<div class="browser img">
+		<iframe data-src="examples/homepage/40/index.html" data-scrollbottom="true" frameborder="0"></iframe>
+	</div>
+	
+	<div class="alert alert-success" role="alert">
+		<strong>Epic Milestone reached: We now have a fully formed homepage!</strong>
+	</div>
+
+	<h3>Extras</h3>
+	
+	<ul>
+		<li>Investigate position: <mark>fixed</mark></li>
+		<li>
+			Make a navigation at the top of the page to all the sections we've made ("Things I like", etc)<br>
+			<small>Internal links on the page using <mark>#</mark> and <mark>id</mark></small>
+		</li>
+		<li>
+			Make this homepage your own style and content.
+		</li>
+		<li>
+			Break out the sections into their own page (and update your nav)
+		</li>
+		<li>
+			Make the list items stack next to each other rather than on their own line<br>
+			<small>You may find <a href="http://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block" target="_blank">this stackoverflow answer <i class="fa fa-external-link"></i></a> helpful...</small>
+		</li>
+
+	</ul>
+
+	<h2>That's a wrap!</h2>
+
+	<p>You're now equipped to build pretty websites (and let's be honest, this website isn't <strong>that</strong> pretty). From here on in you're on your own, but I'll leave you some parting advice:</p> 
+
+	<ul>
+		<li>Use the millions of tutorials and guides to find ways of doing what you want. Resources I recommend:
+		<ul>
+			<li><a href="http://stackoverflow.com/" target="_blank">stackoverflow <i class="fa fa-external-link"></i></a></li>
+			<li><a href="http://www.htmldog.com/" target="_blank">HTML Dog <i class="fa fa-external-link"></i></a></li>
+			<li><a href="https://developer.mozilla.org/en-US/" target="_blank">Mozilla Developer Network <i class="fa fa-external-link"></i></a></li>
+		</ul>
+		<li>The more in-depth you go with your study the easier things become to build. Making your own <a href="http://codepen.io/" target="_blank">test beds <i class="fa fa-external-link"></i></a> can help with this (I have lots of them myself)</li>
+		<li>Offer to build people websites just to get the experience</li>
+		<li>Inspect other websites and how they do things</li>
+		<li>Finish what you start</li>
+	</ul>
+
+@@include('includes/_footer.html')

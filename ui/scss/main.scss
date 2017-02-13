@@ -1,0 +1,152 @@
+body {
+	font-family: helvetica;
+}
+
+p, li {
+	line-height: 160%;
+}
+
+.container {
+	max-width: 800px;
+}
+
+.container li {
+	margin: 5px 0;
+}
+
+.img {
+	margin-bottom: 30px;
+}
+
+.question {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+footer {
+	text-align: center;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 20px;
+	color: #333;
+	font-weight: 600;
+}
+
+h2, h3 {
+	margin-bottom: 20px;
+}
+
+.code-highlight {
+	padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+	font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+}
+
+.browser {
+	
+	height: 600px;
+	background: #f8f8f8;
+	border: 1px solid #4CA4AA;
+	box-sizing: border-box;
+	position: relative;
+
+	&.active {
+
+		border: none;
+		background: transparent url('../img/assets/bg-repeat.png') repeat top left;
+		min-width: 274px;
+		z-index: 1;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: " ";
+			width: 253px;
+			height: 600px;
+			background-image: url('../img/assets/bg-left.png');
+			z-index: 2;
+		}
+
+		&:after {
+			position: absolute;
+			top: 0;
+			right: 0;
+			content: " ";
+			width: 170px;
+			height: 600px;
+			background-image: url('../img/assets/bg-right.png');
+			z-index: 2;
+		}
+
+
+
+		iframe {
+			position: absolute;
+			top: 81px;
+			display: block;
+			left: 7px;
+			width: calc(100% - 14px);
+			max-width: calc(100% - 14px);
+			height: calc(100% - 88px);
+			z-index: 3;
+		}
+
+		button {
+			position: absolute;
+			top: 45px;
+			left: 65px;
+			width: 35px;
+			height: 35px;
+			display: block;
+			background: none;
+			border: 0;
+			z-index: 5;
+			outline: none;
+		}
+
+		
+
+	}
+
+}
+
+@media (max-width: 478px) {
+
+  .browser.active {
+
+  	background: #fff;
+  	border: 1px solid #64D6DE;
+  	box-shadow: 0 0 3px 0 #000;
+  	height: 300px;
+
+  	&:before, &:after {
+		background: none;
+  	}
+
+  	iframe {
+  		top: 0;
+  		left: 0;
+  		width: 100%;
+  		max-width: 100%;
+  		height: 100%;
+  	}
+  	button {
+  		display: none;
+  	}
+  }
+}
+
+.hljs {
+	background: none;
+}

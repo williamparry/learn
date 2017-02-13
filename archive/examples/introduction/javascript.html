@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+	body {
+		background: orange;
+		font-family: verdana;
+	}
+
+	</style>
+
+</head>
+<body>
+	
+	<h1>Basic HTML page with style</h1>
+	
+	<div><button id="btn-name">Name prompt</button></div>
+
+	<p id="name"></p>
+
+	<script>
+	window.onload = function() {
+
+		var btnName = document.getElementById("btn-name");
+		var name = document.getElementById("name");
+
+		btnName.onclick = function() {
+			var enteredName = prompt("What is your name?");
+
+			if(!!enteredName) {
+				name.innerHTML = "Hi, " + enteredName;
+			}
+		}
+	}
+	</script>
+
+</body>
+</html>

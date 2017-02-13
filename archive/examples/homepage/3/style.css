@@ -1,0 +1,13 @@
+h1 {
+	font-size: 36px;
+	text-align: center;
+	font-family: arial;
+}
+
+p {
+	font-size: 24px;
+	font-family: arial;
+	border: 1px solid black;
+	box-shadow: 0 0 3px 0px #000;
+	padding: 10px;
+}

@@ -1,0 +1,46 @@
+body {
+	font-family: arial;
+	color: #333333;
+	background-image: url('../9/bg.png');
+}
+
+h1 {
+	font-size: 36px;
+	text-align: center;
+}
+
+#introduction {
+	
+	font-style: italic;
+	border: 1px solid black;
+	box-shadow: 0 0 3px 0px #000;
+	padding: 10px;
+	background: rgba(255,255,255,0.9);
+}
+
+#pic {
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+}
+
+#things-i-like {
+	clear: left;
+}
+
+#things-i-like-list {
+	padding-left: 0;
+	list-style-type: none;
+}
+
+#things-i-like-list li {
+	
+	border: 1px solid #000;
+	margin-bottom: 15px;
+	background: #fff;
+}
+
+#things-i-like-list li img {
+	vertical-align: middle;
+	margin-right: 15px;
+}

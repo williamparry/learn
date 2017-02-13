@@ -1,0 +1,40 @@
+#favourite-movies {
+	padding-left: 0;
+}
+
+#favourite-movies li {
+	font-family: arial;
+	margin-bottom: 15px;
+}
+
+#favourite-movies li a {
+	color: orange;
+	text-decoration: none;
+}
+
+#favourite-movies li a:hover {
+	color: blue;
+}
+
+.male {
+	font-style: italic;
+}
+
+.female {
+	font-weight: bold;
+}
+
+.it {
+	border: 1px dashed green;
+}
+
+.music {
+	border: 1px solid blue;
+	border-radius: 5px;
+}
+
+/* You can combine classes using a , */
+.music, .it {
+	margin-bottom: 15px;
+	padding: 15px;
+}

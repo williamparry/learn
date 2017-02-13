@@ -1,0 +1,108 @@
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<script>
+	$(function () {
+
+		var $window = $(window);
+		var $document = $(document);
+		var $browsers = $(".browser");
+		var $defer = $(".defer-image-collapse");
+
+		function loadBrowser($browser) {
+
+			$browser.addClass("active");
+
+			var $iframe = $browser.find("iframe");
+
+			if($iframe.data('scrollbottom')) {
+				$iframe.load(function() {
+					var $iframeContents = $iframe.contents();
+					$iframeContents.scrollTop($iframeContents.height())
+				});
+			}
+
+			$iframe.attr('src', $iframe.data('src'));
+
+			$('<button></button>').appendTo($browser).on("click", function() {
+				$iframe.attr( 'src', function ( i, val ) { return val; });
+			});
+
+		}
+
+		function loadViewportBrowsers() {
+
+			clearTimeout($.data(this, 'scrollTimer'));
+
+			$.data(this, 'scrollTimer', setTimeout(function() {
+				
+				var scrollTop = $document.scrollTop();
+				var height = $window.height();
+
+
+				$browsers.filter(":not(.active)").each(function(i, browser) {
+
+					var $browser = $(browser);
+					
+					if($browser.offset().top + $browser.height() >= scrollTop && $browser.offset().top - $browser.height() <= scrollTop + height) {
+						
+						loadBrowser($browser);
+					}
+
+				});
+
+			}, 250))
+
+		}
+
+		$('[data-toggle="popover"]').popover();
+		hljs.initHighlightingOnLoad();
+		
+		$defer.on('show.bs.collapse', function () {
+			var $img = $(this).find("img");
+			if($img.data('src')) {
+				$img.prop('src', $img.data('src'));
+				$img.data('src', null);
+			}
+		});
+
+		$window.scroll(loadViewportBrowsers);
+
+		loadViewportBrowsers.bind($window)();
+
+
+/*
+
+		$("iframe").each(function(i, iframe) {
+			 $(iframe).contents().find("head").append($("<link/>", {
+			 	rel: "stylesheet",
+			 	href: "lib/normalize.css",
+			 	type: "text/css"
+			 }));
+		});
+*/
+	});
+	</script>
+
+	<footer>
+		<br>
+		<hr>
+		<small>
+			&copy; 2017 William Parry | <a href="http://www.williamparry.com">williamparry.com</a>
+		</small>
+		<br>
+		<br>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		<!-- Main -->
+		<ins class="adsbygoogle"
+		     style="display:inline-block;width:728px;height:90px"
+		     data-ad-client="ca-pub-1373378686083271"
+		     data-ad-slot="4828248346"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</footer>
+
+</body>
+</html>
