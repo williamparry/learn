@@ -4,6 +4,8 @@ This is from the course material written to teach at the community [Web Developm
 
 The Make a Homepage section has been removed.
 
+It lives at [learn.williamparry.com](http://learn.williamparry.com)
+
 To run:
 
 	npm install
