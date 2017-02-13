@@ -1,4 +1,8 @@
-#Learn
+# Learn
+
+This is from the course material written to teach at the community [Web Development 101](http://www.randwick.nsw.gov.au/library/library-events/library-calendar/events/2015/april/web-development-101?SQ_CALENDAR_DATE=2015-05-10) course in May 2015.
+
+The Make a Homepage section has been removed.
 
 To run:
 
